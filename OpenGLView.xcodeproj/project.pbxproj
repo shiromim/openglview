@@ -15,6 +15,7 @@
 		0B3E35CE15FC6DF100BFD021 /* OpenGLViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3E35CD15FC6DF100BFD021 /* OpenGLViewAppDelegate.m */; };
 		0B734C9315FC890200BFBAF5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B734C9215FC890200BFBAF5 /* OpenGLES.framework */; };
 		0B734C9615FC890900BFBAF5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B734C9515FC890900BFBAF5 /* QuartzCore.framework */; };
+		0B734C9915FCEB0200BFBAF5 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B734C9815FCEB0200BFBAF5 /* OpenGLView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		0B3E35CD15FC6DF100BFD021 /* OpenGLViewAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLViewAppDelegate.m; sourceTree = "<group>"; };
 		0B734C9215FC890200BFBAF5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		0B734C9515FC890900BFBAF5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0B734C9715FCEB0200BFBAF5 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		0B734C9815FCEB0200BFBAF5 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,8 @@
 				0B3E35CC15FC6DF100BFD021 /* OpenGLViewAppDelegate.h */,
 				0B3E35CD15FC6DF100BFD021 /* OpenGLViewAppDelegate.m */,
 				0B3E35C415FC6DF100BFD021 /* Supporting Files */,
+				0B734C9715FCEB0200BFBAF5 /* OpenGLView.h */,
+				0B734C9815FCEB0200BFBAF5 /* OpenGLView.m */,
 			);
 			path = OpenGLView;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 			files = (
 				0B3E35CA15FC6DF100BFD021 /* main.m in Sources */,
 				0B3E35CE15FC6DF100BFD021 /* OpenGLViewAppDelegate.m in Sources */,
+				0B734C9915FCEB0200BFBAF5 /* OpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
