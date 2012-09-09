@@ -16,6 +16,8 @@
 		0B734C9315FC890200BFBAF5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B734C9215FC890200BFBAF5 /* OpenGLES.framework */; };
 		0B734C9615FC890900BFBAF5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B734C9515FC890900BFBAF5 /* QuartzCore.framework */; };
 		0B734C9915FCEB0200BFBAF5 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B734C9815FCEB0200BFBAF5 /* OpenGLView.m */; };
+		0B734C9B15FCF64C00BFBAF5 /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0B734C9A15FCF64C00BFBAF5 /* SimpleVertex.glsl */; };
+		0B734C9D15FCF69000BFBAF5 /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0B734C9C15FCF69000BFBAF5 /* SimpleFragment.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		0B734C9515FC890900BFBAF5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0B734C9715FCEB0200BFBAF5 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
 		0B734C9815FCEB0200BFBAF5 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		0B734C9A15FCF64C00BFBAF5 /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleVertex.glsl; sourceTree = "<group>"; };
+		0B734C9C15FCF69000BFBAF5 /* SimpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleFragment.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 				0B3E35C415FC6DF100BFD021 /* Supporting Files */,
 				0B734C9715FCEB0200BFBAF5 /* OpenGLView.h */,
 				0B734C9815FCEB0200BFBAF5 /* OpenGLView.m */,
+				0B734C9A15FCF64C00BFBAF5 /* SimpleVertex.glsl */,
+				0B734C9C15FCF69000BFBAF5 /* SimpleFragment.glsl */,
 			);
 			path = OpenGLView;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B3E35C815FC6DF100BFD021 /* InfoPlist.strings in Resources */,
+				0B734C9B15FCF64C00BFBAF5 /* SimpleVertex.glsl in Resources */,
+				0B734C9D15FCF69000BFBAF5 /* SimpleFragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
