@@ -10,6 +10,23 @@
 
 @implementation OpenGLView
 
+typedef struct {
+    float Position[3];
+    float Color[4];
+} Vertex;
+
+const Vertex Vertices[] = {
+    {{1, -1, 0}, {1, 0, 0, 1}},
+    {{1, 1, 0}, {0, 1, 0, 1}},
+    {{-1, 1, 0}, {0, 0, 1, 1}},
+    {{-1, -1, 0}, {0, 0, 0, 1}}
+};
+
+const GLubyte Indices[] = {
+    0, 1, 2,
+    2, 3, 0
+};
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -19,6 +36,7 @@
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         [self compileShaders];
+        [self setupVBOs];
         [self render];
     }
     return self;
@@ -68,6 +86,14 @@
 - (void)render {
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    glViewport(0, 0, self.frame.size.width, self.frame.size.height);
+    
+    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+    glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(float)*3));
+    
+    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
+    
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
@@ -127,6 +153,18 @@
     _colorSlot = glGetAttribLocation(programHandle, "SourceColor");
     glEnableVertexAttribArray(_positionSlot);
     glEnableVertexAttribArray(_colorSlot);
+}
+
+- (void)setupVBOs {
+    GLuint vertexBuffer;
+    glGenBuffers(1, &vertexBuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+    
+    GLuint indexBuffer;
+    glGenBuffers(1, &indexBuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
 }
 
 @end
