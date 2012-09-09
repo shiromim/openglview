@@ -19,6 +19,7 @@
     GLuint _colorSlot;
     GLuint _projectionUniform;
     GLuint _modelViewUniform;
+    float _currentRotation;
 }
 
 @end
