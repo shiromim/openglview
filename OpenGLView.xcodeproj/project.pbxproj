@@ -13,6 +13,8 @@
 		0B3E35C815FC6DF100BFD021 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0B3E35C615FC6DF100BFD021 /* InfoPlist.strings */; };
 		0B3E35CA15FC6DF100BFD021 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3E35C915FC6DF100BFD021 /* main.m */; };
 		0B3E35CE15FC6DF100BFD021 /* OpenGLViewAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3E35CD15FC6DF100BFD021 /* OpenGLViewAppDelegate.m */; };
+		0B734C9315FC890200BFBAF5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B734C9215FC890200BFBAF5 /* OpenGLES.framework */; };
+		0B734C9615FC890900BFBAF5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B734C9515FC890900BFBAF5 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		0B3E35CB15FC6DF100BFD021 /* OpenGLView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenGLView-Prefix.pch"; sourceTree = "<group>"; };
 		0B3E35CC15FC6DF100BFD021 /* OpenGLViewAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLViewAppDelegate.h; sourceTree = "<group>"; };
 		0B3E35CD15FC6DF100BFD021 /* OpenGLViewAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OpenGLViewAppDelegate.m; sourceTree = "<group>"; };
+		0B734C9215FC890200BFBAF5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		0B734C9515FC890900BFBAF5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B734C9615FC890900BFBAF5 /* QuartzCore.framework in Frameworks */,
+				0B734C9315FC890200BFBAF5 /* OpenGLES.framework in Frameworks */,
 				0B3E35BE15FC6DF100BFD021 /* UIKit.framework in Frameworks */,
 				0B3E35C015FC6DF100BFD021 /* Foundation.framework in Frameworks */,
 				0B3E35C215FC6DF100BFD021 /* CoreGraphics.framework in Frameworks */,
@@ -45,6 +51,8 @@
 		0B3E35AE15FC6DF100BFD021 = {
 			isa = PBXGroup;
 			children = (
+				0B734C9515FC890900BFBAF5 /* QuartzCore.framework */,
+				0B734C9215FC890200BFBAF5 /* OpenGLES.framework */,
 				0B3E35C315FC6DF100BFD021 /* OpenGLView */,
 				0B3E35BC15FC6DF100BFD021 /* Frameworks */,
 				0B3E35BA15FC6DF100BFD021 /* Products */,
@@ -262,6 +270,7 @@
 				0B3E35D315FC6DF100BFD021 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
