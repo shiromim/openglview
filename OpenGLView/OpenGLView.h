@@ -18,6 +18,7 @@
     GLuint _positionSlot;
     GLuint _colorSlot;
     GLuint _projectionUniform;
+    GLuint _modelViewUniform;
 }
 
 @end
