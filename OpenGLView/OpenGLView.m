@@ -17,6 +17,7 @@ typedef struct {
     float TexCoord[2];
 } Vertex;
 
+// Repeating Textures 
 #define TEX_COORD_MAX 4
 
 const Vertex Vertices[] = {
@@ -188,32 +189,43 @@ const GLubyte Indices2[] = {
 
 - (void)render:(CADisplayLink *)displayLink {
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
+    
+    // Enable Depth testing
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
     
-    // Blending
+    // Blending for additional Texture
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     
+    // Projection
+    // Convert matrix into array for Vertex shader
     CC3GLMatrix *projection = [CC3GLMatrix matrix];
     float h = 4.0f * self.frame.size.height / self.frame.size.width;
     [projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:4 andFar:10];
     glUniformMatrix4fv(_projectionUniform, 1, 0, projection.glMatrix);
     
+    // Translation
     CC3GLMatrix *modelView = [CC3GLMatrix matrix];
     [modelView populateFromTranslation:CC3VectorMake(sin(CACurrentMediaTime()), 0, -7)];
+    
+    // Rotation
     _currentRotation += displayLink.duration * 90;
     [modelView rotateBy:CC3VectorMake(_currentRotation, _currentRotation, 0)];
     glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
     
+    // Use entire screen for rendering
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     
+    // Additional Texture
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer);
     
+    // Feed vertex and color to Vertex shader
     glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(float)*3));
     
+    // Feed texture coodinates to Vertex shader
     glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(float)*7));
     
     glActiveTexture(GL_TEXTURE0);
@@ -222,6 +234,7 @@ const GLubyte Indices2[] = {
     
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
     
+    // Additional Texture
     glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer2);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer2);
     
@@ -234,6 +247,7 @@ const GLubyte Indices2[] = {
     glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(float)*3));
     glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(float)*7));
+    
     glDrawElements(GL_TRIANGLE_STRIP, sizeof(Indices2)/sizeof(Indices2[0]), GL_UNSIGNED_BYTE, 0);
     
     [_context presentRenderbuffer:GL_RENDERBUFFER];
@@ -291,15 +305,22 @@ const GLubyte Indices2[] = {
     
     glUseProgram(programHandle);
     
+    // Vertex, Color
     _positionSlot = glGetAttribLocation(programHandle, "Position");
     _colorSlot = glGetAttribLocation(programHandle, "SourceColor");
-    _projectionUniform = glGetUniformLocation(programHandle, "Projection");
-    _modelViewUniform = glGetUniformLocation(programHandle, "Modelview");
     glEnableVertexAttribArray(_positionSlot);
     glEnableVertexAttribArray(_colorSlot);
     
+    // Projection
+    _projectionUniform = glGetUniformLocation(programHandle, "Projection");
+    
+    // Translation, Rotation
+    _modelViewUniform = glGetUniformLocation(programHandle, "Modelview");
+
+    // Texture
     _texCoordSlot = glGetAttribLocation(programHandle, "TexCoordIn");
     glEnableVertexAttribArray(_texCoordSlot);
+    
     _textureUniform = glGetUniformLocation(programHandle, "Texture");
 }
 
