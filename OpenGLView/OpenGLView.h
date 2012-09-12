@@ -21,6 +21,11 @@
     GLuint _modelViewUniform;
     float _currentRotation;
     GLuint _depthRenderBuffer;
+    
+    GLuint _floorTexture;
+    GLuint _fishTexture;
+    GLuint _texCoordSlot;
+    GLuint _textureUniform;
 }
 
 @end

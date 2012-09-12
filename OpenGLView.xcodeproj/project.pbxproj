@@ -20,6 +20,8 @@
 		0B734C9D15FCF69000BFBAF5 /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 0B734C9C15FCF69000BFBAF5 /* SimpleFragment.glsl */; };
 		0B734E6815FD1B0000BFBAF5 /* CC3Foundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B734E5B15FD1B0000BFBAF5 /* CC3Foundation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0B734E6915FD1B0000BFBAF5 /* CC3GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B734E5D15FD1B0000BFBAF5 /* CC3GLMatrix.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0B9A905E15FFFFE000BD4471 /* item_powerup_fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9A905C15FFFFE000BD4471 /* item_powerup_fish.png */; };
+		0B9A905F15FFFFE000BD4471 /* tile_floor.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B9A905D15FFFFE000BD4471 /* tile_floor.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		0B734E6E15FD1BF500BFBAF5 /* CCESRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCESRenderer.h; sourceTree = "<group>"; };
 		0B734E7115FD1F9E00BFBAF5 /* CCArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCArray.h; sourceTree = "<group>"; };
 		0B734E7215FD1F9E00BFBAF5 /* ccCArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ccCArray.h; sourceTree = "<group>"; };
+		0B9A905C15FFFFE000BD4471 /* item_powerup_fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = item_powerup_fish.png; sourceTree = "<group>"; };
+		0B9A905D15FFFFE000BD4471 /* tile_floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tile_floor.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		0B3E35C315FC6DF100BFD021 /* OpenGLView */ = {
 			isa = PBXGroup;
 			children = (
+				0B9A905C15FFFFE000BD4471 /* item_powerup_fish.png */,
+				0B9A905D15FFFFE000BD4471 /* tile_floor.png */,
 				0B734E5915FD1B0000BFBAF5 /* cocos3d */,
 				0B3E35CC15FC6DF100BFD021 /* OpenGLViewAppDelegate.h */,
 				0B3E35CD15FC6DF100BFD021 /* OpenGLViewAppDelegate.m */,
@@ -230,6 +236,8 @@
 				0B3E35C815FC6DF100BFD021 /* InfoPlist.strings in Resources */,
 				0B734C9B15FCF64C00BFBAF5 /* SimpleVertex.glsl in Resources */,
 				0B734C9D15FCF69000BFBAF5 /* SimpleFragment.glsl in Resources */,
+				0B9A905E15FFFFE000BD4471 /* item_powerup_fish.png in Resources */,
+				0B9A905F15FFFFE000BD4471 /* tile_floor.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

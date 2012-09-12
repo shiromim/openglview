@@ -14,17 +14,18 @@
 typedef struct {
     float Position[3];
     float Color[4];
+    float TexCoord[2];
 } Vertex;
 
 const Vertex Vertices[] = {
-    {{1, -1, 0}, {1, 0, 0, 1}},
-    {{1, 1, 0}, {1, 0, 0, 1}},
-    {{-1, 1, 0}, {0, 1, 0, 1}},
-    {{-1, -1, 0}, {0, 1, 0, 1}},
-    {{1, -1, -1}, {1, 0, 0, 1}},
-    {{1, 1, -1}, {1, 0, 0, 1}},
-    {{-1, 1, -1}, {0, 1, 0, 1}},
-    {{-1, -1, -1}, {0, 1, 0, 1}}
+    {{1, -1, 0}, {1, 0, 0, 1}, {1, 0}},
+    {{1, 1, 0}, {1, 0, 0, 1}, {1, 1}},
+    {{-1, 1, 0}, {0, 1, 0, 1}, {0, 1}},
+    {{-1, -1, 0}, {0, 1, 0, 1}, {0, 0}},
+    {{1, -1, -1}, {1, 0, 0, 1}, {1, 0}},
+    {{1, 1, -1}, {1, 0, 0, 1}, {1, 1}},
+    {{-1, 1, -1}, {0, 1, 0, 1}, {0, 1}},
+    {{-1, -1, -1}, {0, 1, 0, 1}, {0, 0}}
 };
 
 const GLubyte Indices[] = {
@@ -96,6 +97,8 @@ const GLubyte Indices[] = {
         [self compileShaders];
         [self setupVBOs];
         [self setupDisplayLink];
+        _floorTexture = [self setupTexture:@"tile_floor.png"];
+        _fishTexture = [self setupTexture:@"item_powerup_fish.png"];
     }
     return self;
 }
@@ -169,6 +172,12 @@ const GLubyte Indices[] = {
     glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(float)*3));
     
+    glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)(sizeof(float)*7));
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _floorTexture);
+    glUniform1i(_textureUniform, 0);
+    
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
     
     [_context presentRenderbuffer:GL_RENDERBUFFER];
@@ -232,6 +241,10 @@ const GLubyte Indices[] = {
     _modelViewUniform = glGetUniformLocation(programHandle, "Modelview");
     glEnableVertexAttribArray(_positionSlot);
     glEnableVertexAttribArray(_colorSlot);
+    
+    _texCoordSlot = glGetAttribLocation(programHandle, "TexCoordIn");
+    glEnableVertexAttribArray(_texCoordSlot);
+    _textureUniform = glGetUniformLocation(programHandle, "Texture");
 }
 
 - (void)setupVBOs {
